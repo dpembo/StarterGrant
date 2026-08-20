@@ -1,0 +1,43 @@
+# StarterGrant config
+
+enabled: true
+
+storage:
+  # file    - local flat file, this server only. Simple, but on a
+  #           multi-backend network a player rejoining a different
+  #           backend for the first time will be granted again.
+  # mariadb - shared table, safe across all backends on the network.
+  #           Recommended for a multi-server setup (e.g. Earth + Spawn).
+  type: file
+
+  file:
+    path: "starter_grants.txt"
+    # relative to plugin data folder
+
+  mariadb:
+    # If true, reuse an existing HikariCP DataSource wired up elsewhere in
+    # the plugin (requires passing it into StarterGrantStorageFactory.create
+    # from code — see FixedSpawn#setupStarterGrant). If false, this feature
+    # opens its own small connection pool using the settings below.
+    use-shared-pool: false
+    host: "localhost"
+    port: 3306
+    database: "globeworks"
+    username: "startergrant"
+    password: "changeme"
+    table: "starter_grants"
+
+# Seconds to wait after join before running the grant commands.
+# Gives the client time to finish connecting (Velocity hops, resource packs,
+# other plugins' join logic) so the commands aren't lost. 0 = run as soon as
+# the storage check finishes. Typical values: 2–5.
+command-delay-seconds: 5
+
+# One-time grant given the first time a player ever joins this server
+# (e.g. a starter kit token + opening balance).
+# %player% is replaced with the player's name. Commands run as console.
+commands:
+  - "keepinvtokens give %player% 1"
+  - "eco give %player% 10000"
+
+

@@ -1,0 +1,19 @@
+name: StarterGrant
+version: '${project.version}'
+main: uk.co.pembo.startergrant.StarterGrant
+api-version: '1.21'
+author: dpembo
+description: Gives a one-time starter grant (kit / balance commands) the first time a player joins.
+
+softdepend: [KeepInvTokens, Essentials]
+
+commands:
+  startergrant:
+    description: Reload the StarterGrant config.
+    usage: /startergrant reload
+    permission: startergrant.admin
+
+permissions:
+  startergrant.admin:
+    description: Allows reloading StarterGrant's config
+    default: op
