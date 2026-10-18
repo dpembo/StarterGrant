@@ -37,6 +37,7 @@ public final class StarterGrantStorageFactory {
             hikariConfig.setUsername(config.getString("storage.mariadb.username"));
             hikariConfig.setPassword(config.getString("storage.mariadb.password"));
             hikariConfig.setMaximumPoolSize(2);
+            hikariConfig.setMaxLifetime(config.getLong("storage.mariadb.max-lifetime", 540000L));
             hikariConfig.setPoolName("StarterGrant");
 
             return new MariaDbStarterGrantStorage(new HikariDataSource(hikariConfig), table, logger, true);

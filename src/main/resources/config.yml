@@ -26,6 +26,9 @@ storage:
     username: "startergrant"
     password: "changeme"
     table: "starter_grants"
+    # HikariCP maxLifetime in milliseconds. Connections older than this are
+    # retired so they don't outlive the server's wait_timeout. 540000 = 9 minutes.
+    max-lifetime: 540000
 
 # Seconds to wait after join before running the grant commands.
 # Gives the client time to finish connecting (Velocity hops, resource packs,
