@@ -21,4 +21,4 @@ Extracted from the starter-grant feature of FixedSpawn.
 
 mvn package
 
-Jar: target/StarterGrant.jar
+Jar: target/StarterGrant-<version>.jar (for example target/StarterGrant-1.1.0.jar)

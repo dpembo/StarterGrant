@@ -6,7 +6,7 @@
 
     <groupId>uk.co.pembo</groupId>
     <artifactId>StarterGrant</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>StarterGrant</name>
@@ -50,7 +50,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.name}</finalName>
+        <finalName>${project.name}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
