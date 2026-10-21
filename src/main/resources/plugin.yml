@@ -9,11 +9,11 @@ softdepend: [KeepInvTokens, Essentials]
 
 commands:
   startergrant:
-    description: Reload the StarterGrant config.
-    usage: /startergrant reload
+    description: Reload StarterGrant, or copy records between file and database storage.
+    usage: /startergrant <reload|migrate>
     permission: startergrant.admin
 
 permissions:
   startergrant.admin:
-    description: Allows reloading StarterGrant's config
+    description: Allows reloading StarterGrant and migrating its storage
     default: op

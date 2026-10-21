@@ -8,6 +8,10 @@ storage:
   #           backend for the first time will be granted again.
   # mariadb - shared table, safe across all backends on the network.
   #           Recommended for a multi-server setup (e.g. Earth + Spawn).
+  # /startergrant migrate copies every record from the active backend to the
+  # other one. MariaDB → file rewrites the file. File → MariaDB inserts any
+  # UUIDs that are not already in the table. Then set type to the destination
+  # and run /startergrant reload.
   type: file
 
   file:

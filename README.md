@@ -11,6 +11,7 @@ Extracted from the starter-grant feature of FixedSpawn.
 - Async check/record so join is not blocked by I/O.
 - Race-safe (flag written before commands; MariaDB uses INSERT IGNORE).
 - `/startergrant reload`
+- `/startergrant migrate` copies every record from the active backend to the other one, so you can switch `storage.type`. MariaDB → file rewrites the file with those UUIDs. File → MariaDB inserts any UUID not already in the table (existing rows are kept, so a player already granted on the database is not granted again).
 
 ## Requirements
 
